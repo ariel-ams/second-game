@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dh6h84axdit4i"]
+
+[ext_resource type="Script" path="res://scenes/Obstacle.cs" id="1_2b2tp"]
+[ext_resource type="Texture2D" uid="uid://blxf6ru8ocoey" path="res://icon.svg" id="1_anl4g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xckb"]
+size = Vector2(12, 12)
+
+[node name="obstacle" type="StaticBody2D"]
+script = ExtResource("1_2b2tp")
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.09375, 0.09375)
+texture = ExtResource("1_anl4g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4xckb")

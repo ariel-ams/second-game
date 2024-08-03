@@ -1,0 +1,25 @@
+using Godot;
+using System;
+
+public partial class Obstacle : StaticBody2D
+{
+	private float tiempoTranscurrido = 0f;
+	private float amplitud = 5f; // Ajusta esto para cambiar qué tan arriba/abajo se mueve
+	private float frecuencia = 1f; // Ajusta esto para cambiar la velocidad del movimiento
+
+	// Called when the node enters the scene tree for the first time.
+	public override void _Ready()
+	{
+	}
+
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _Process(double delta)
+	{
+		tiempoTranscurrido += (float)delta;
+    
+		float desplazamientoY = amplitud * Mathf.Sin(frecuencia * tiempoTranscurrido * (2 * Mathf.Pi));
+    
+		MoveLocalY(desplazamientoY - Position.Y);
+	}
+
+}
